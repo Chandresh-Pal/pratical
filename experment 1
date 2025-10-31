@@ -1,0 +1,206 @@
+Excellent 🔥 — you’re asking for **complete step-by-step instructions** to
+👉 *Install and spin up a Kubernetes Cluster on Linux or Cloud (AWS EKS)*
+
+I’ll give you the **full guide**, including everything from installation to verifying your running cluster — and I’ll integrate your progress (you already ran `eksctl` successfully 👍).
+
+---
+
+# 🧠 Full Guide: Install and Spin Up a Kubernetes Cluster on Linux / AWS Cloud (EKS)
+
+---
+
+## 🧩 1. Prerequisites
+
+### ✅ Requirements:
+
+* **Linux system or AWS CloudShell / EC2 Ubuntu instance**
+* **AWS CLI installed**
+* **kubectl installed**
+* **eksctl installed**
+* Proper **IAM permissions** (AdministratorAccess or EKS full access)
+
+---
+
+### 🪄 Check if AWS CLI is installed:
+
+```bash
+aws --version
+```
+
+If not installed:
+
+```bash
+sudo apt update
+sudo apt install awscli -y
+```
+
+---
+
+### 🪄 Configure AWS credentials:
+
+```bash
+aws configure
+```
+
+Enter your:
+
+* AWS Access Key ID
+* AWS Secret Access Key
+* Default region (e.g. `us-east-1` or `ap-south-1`)
+* Output format: `json`
+
+Verify setup:
+
+```bash
+aws sts get-caller-identity
+```
+
+---
+
+### 🪄 Install `kubectl` (Kubernetes CLI)
+
+```bash
+curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.29.0/2024-02-16/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin
+kubectl version --client
+```
+
+---
+
+### 🪄 Install `eksctl` (EKS CLI)
+
+```bash
+curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz"
+tar -xzf eksctl_$(uname -s)_amd64.tar.gz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+```
+
+---
+
+## 🚀 2. Create a Kubernetes (EKS) Cluster
+
+Now, let’s create the actual EKS cluster.
+
+Run:
+
+```bash
+eksctl create cluster \
+--name my-cluster \
+--region us-east-1 \
+--node-type t3.micro \
+--nodes 2 \
+--managed
+```
+
+Explanation:
+
+| Option        | Description                        |
+| ------------- | ---------------------------------- |
+| `--name`      | Cluster name                       |
+| `--region`    | AWS region                         |
+| `--node-type` | EC2 instance type for worker nodes |
+| `--nodes`     | Number of worker nodes             |
+| `--managed`   | Uses AWS-managed node group        |
+
+---
+
+### 📡 You’ll see output like:
+
+```
+[ℹ]  building cluster stack "eksctl-my-cluster-cluster"
+[ℹ]  deploying stack "eksctl-my-cluster-cluster"
+[ℹ]  waiting for CloudFormation stack "eksctl-my-cluster-cluster"
+```
+
+⏳ Wait for 10–15 minutes until you see:
+
+```
+[✔]  EKS cluster "my-cluster" in "us-east-1" region is ready
+```
+
+---
+
+## 🧠 3. Verify Your Cluster
+
+Once it finishes, run:
+
+```bash
+kubectl get nodes
+```
+
+You should see output like:
+
+```
+NAME                                          STATUS   ROLES    AGE   VERSION
+ip-192-168-xx-xx.us-east-1.compute.internal   Ready    <none>   3m    v1.29.0
+```
+
+Also check cluster services:
+
+```bash
+kubectl get svc
+```
+
+---
+
+## 🧱 4. Deploy a Sample Application
+
+Let’s deploy a simple **Nginx web server** inside your cluster.
+
+Create a deployment:
+
+```bash
+kubectl create deployment nginx --image=nginx
+```
+
+Expose it to the internet:
+
+```bash
+kubectl expose deployment nginx --port=80 --type=LoadBalancer
+```
+
+Now check:
+
+```bash
+kubectl get svc
+```
+
+You’ll see an **EXTERNAL-IP** after a few minutes — copy it and open in your browser:
+
+```
+http://<EXTERNAL-IP>
+```
+
+✅ You should see the **Nginx Welcome Page** → meaning your Kubernetes app is live!
+
+---
+
+## 🧹 5. Delete Cluster (Optional)
+
+When done testing, delete to avoid AWS charges:
+
+```bash
+eksctl delete cluster --name my-cluster --region us-east-1
+```
+
+---
+
+# 🎯 Summary
+
+| Step | Command                      | Purpose               |
+| ---- | ---------------------------- | --------------------- |
+| 1    | `sudo apt install awscli -y` | Install AWS CLI       |
+| 2    | `aws configure`              | Configure credentials |
+| 3    | Install `kubectl`            | Control Kubernetes    |
+| 4    | Install `eksctl`             | Manage EKS            |
+| 5    | `eksctl create cluster`      | Create EKS cluster    |
+| 6    | `kubectl get nodes`          | Verify cluster        |
+| 7    | `kubectl create deployment`  | Deploy app            |
+| 8    | `kubectl expose deployment`  | Expose service        |
+| 9    | `eksctl delete cluster`      | Clean up              |
+
+---
+
+Would you like me to extend this guide by adding **screenshots and architecture diagram (YAML + flow)** for your submission/report? It’ll make it perfect for lab or assignment submission.
