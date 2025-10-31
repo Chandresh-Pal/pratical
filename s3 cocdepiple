@@ -1,0 +1,144 @@
+Full Process: Deploy Your Own Code to S3 via CodePipeline
+🪣 Step 1: Create an S3 Bucket
+
+Go to AWS Console → S3 → Create bucket
+
+Enter a unique name — example:
+my-portfolio-site-demo
+
+Uncheck “Block all public access” → Confirm
+
+Click Create bucket
+
+🌍 Step 2: Enable Static Website Hosting
+
+Open your new bucket
+
+Go to Properties → Static website hosting
+
+Enable it:
+
+Index document: index.html
+
+Error document: error.html (optional)
+
+Click Save changes
+
+Copy the Website endpoint URL (keep it safe)
+
+💻 Step 3: Upload Your Own Code to GitHub
+
+If you already have your own HTML/CSS/JS project, follow this:
+
+Create a new repository in GitHub (example: mywebsite)
+
+On your local system, open a terminal in your project folder
+Example folder: C:\Users\You\Desktop\mywebsite
+
+Run these commands:
+
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/yourusername/mywebsite.git
+git push -u origin main
+
+
+Your code is now stored in GitHub.
+
+⚙️ Step 4: Create the Pipeline
+
+Go to AWS Console → CodePipeline → Create pipeline
+
+Name it something like MyWebsitePipeline
+
+Leave “Service Role” as New Service Role
+
+Click Next
+
+🔗 Step 5: Choose Source
+
+(This is the screen in your image)
+
+Source provider: Select GitHub (via GitHub App)
+
+Click Connect to GitHub
+
+Authorize AWS to access your account
+
+Choose your repository (mywebsite)
+
+Choose your branch (main)
+
+Click Next
+
+🧱 Step 6: Build Stage
+
+Since your website is static (HTML/CSS/JS):
+
+Click Skip build stage
+
+Confirm “Yes, skip build stage”
+
+Click Next
+
+📦 Step 7: Deploy Stage
+
+Deploy provider: Amazon S3
+
+Region: Choose same region as your bucket
+
+Bucket name: Select your bucket (my-portfolio-site-demo)
+
+Extract file before deploy: ✅ (check this)
+
+Click Next
+
+🧾 Step 8: Review and Create
+
+Review all stages → click Create pipeline
+
+AWS will:
+
+Pull your code from GitHub
+
+Deploy it to your S3 bucket automatically
+
+🌐 Step 9: Verify Deployment
+
+Go to your S3 bucket → Properties → Static website hosting
+
+Copy your Website endpoint
+
+Paste it in browser → You’ll see your own HTML/CSS site live!
+
+🔁 Step 10: Automatic Updates
+
+Now whenever you:
+
+Edit your code locally,
+
+Commit and push it to GitHub,
+
+CodePipeline automatically runs → redeploys the updated site to S3 🎉
+
+⚠️ Optional: Make Public Access Work
+
+If you get a “403 Forbidden” error, add this bucket policy (replace bucket name):
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::my-portfolio-site-demo/*"
+    }
+  ]
+}
+
+
+Go to Bucket → Permissions → Bucket Policy → Paste this → Save.
