@@ -924,4 +924,869 @@ This experiment demonstrates the fundamental Docker commands used in Linux (Ubun
 
 Would you like me to create a **formatted PDF lab report** (with outputs, explanations, and screenshot placeholders) for this experiment too?
 
+Here’s the **complete practical write-up** for your **Experiment 14: Execute Basic Commands in Git** — formatted perfectly for your **AWS Ubuntu lab submission or practical report** 👇
+
+---
+
+## 🧪 **Experiment 14: Execute Basic Commands in Git**
+
+### **Objective:**
+
+To understand and execute the basic Git commands used for initializing a repository, tracking files, committing changes, and synchronizing with remote repositories.
+
+---
+
+## 🖥️ **System Requirements**
+
+* AWS EC2 Instance (Ubuntu)
+* **Git** installed (`sudo apt install git -y`)
+* Active **GitHub account** (for remote operations)
+
+---
+
+## ⚙️ **Step-by-Step Procedure**
+
+---
+
+### **1. Check Git Installation**
+
+```bash
+git --version
+```
+
+✅ Displays the installed version of Git.
+Example Output:
+
+```
+git version 2.34.1
+```
+
+---
+
+### **2. Configure Git User Information**
+
+Set your name and email (these details appear in commits):
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+```
+
+To verify configuration:
+
+```bash
+git config --list
+```
+
+---
+
+### **3. Initialize a New Git Repository**
+
+Create a project folder:
+
+```bash
+mkdir git-demo
+cd git-demo
+```
+
+Initialize Git inside it:
+
+```bash
+git init
+```
+
+✅ Creates a hidden `.git` directory for version control.
+
+---
+
+### **4. Create a New File**
+
+```bash
+echo "Hello Git" > hello.txt
+```
+
+Check file:
+
+```bash
+cat hello.txt
+```
+
+---
+
+### **5. Check Repository Status**
+
+```bash
+git status
+```
+
+✅ Shows tracked/untracked files and pending commits.
+
+---
+
+### **6. Add File to Staging Area**
+
+```bash
+git add hello.txt
+```
+
+To add all files at once:
+
+```bash
+git add .
+```
+
+---
+
+### **7. Commit Changes**
+
+```bash
+git commit -m "Initial commit: added hello.txt"
+```
+
+✅ Commits the file to local repository history.
+
+---
+
+### **8. View Commit History**
+
+```bash
+git log
+```
+
+✅ Displays commit details (author, date, message).
+
+---
+
+### **9. Create a Branch**
+
+```bash
+git branch feature
+```
+
+Switch to that branch:
+
+```bash
+git checkout feature
+```
+
+---
+
+### **10. Merge Branch into Main**
+
+Switch back to main:
+
+```bash
+git checkout main
+```
+
+Merge:
+
+```bash
+git merge feature
+```
+
+---
+
+### **11. Connect to Remote Repository**
+
+Create a new repository on **GitHub**, then link it to your local repo:
+
+```bash
+git remote add origin https://github.com/username/git-demo.git
+```
+
+Verify:
+
+```bash
+git remote -v
+```
+
+---
+
+### **12. Push Local Commits to Remote Repository**
+
+```bash
+git branch -M main
+git push -u origin main
+```
+
+---
+
+### **13. Pull Updates from Remote Repository**
+
+```bash
+git pull origin main
+```
+
+✅ Fetches and merges latest changes from GitHub.
+
+---
+
+### **14. Clone an Existing Repository**
+
+```bash
+git clone https://github.com/username/sample-repo.git
+```
+
+---
+
+### **15. View All Branches**
+
+```bash
+git branch
+```
+
+---
+
+### **16. Delete a Branch**
+
+```bash
+git branch -d feature
+```
+
+---
+
+## 🧾 **Result:**
+
+Successfully executed basic Git commands including repository creation, file tracking, committing, branching, merging, and pushing to a remote GitHub repository.
+
+---
+
+## 🧠 **Conclusion:**
+
+This experiment familiarizes users with fundamental Git commands essential for version control and collaboration. Git helps developers efficiently manage code history, track changes, and synchronize work across multiple systems.
+
+---
+
+Would you like me to create this experiment as a **formatted PDF report** (with command outputs, explanations, and screenshot placeholders) for your AWS/Git practical submission?
+Here’s the **complete and submission-ready write-up** for your **Experiment 15: Create a Git repository, add a new file, commit, and push to remote** — perfectly formatted for your **AWS + Ubuntu lab report** 👇
+
+---
+
+## 🧪 **Experiment 15: Create a Git Repository, Add a New File to the Repository, Commit the Changes with a Meaningful Message, and Push the Changes to a Remote Repository**
+
+### **Objective:**
+
+To learn how to create a new Git repository, add and commit files locally, and push the changes to a remote repository hosted on GitHub.
+
+---
+
+## 🖥️ **System Requirements**
+
+* AWS EC2 instance running **Ubuntu**
+* **Git** installed (`sudo apt install git -y`)
+* Active **GitHub account** for remote repository access
+
+---
+
+## ⚙️ **Step-by-Step Procedure**
+
+---
+
+### **1. Configure Git (if not already configured)**
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+```
+
+Check configuration:
+
+```bash
+git config --list
+```
+
+---
+
+### **2. Create a New Project Directory**
+
+```bash
+mkdir my-first-repo
+cd my-first-repo
+```
+
+---
+
+### **3. Initialize Git Repository**
+
+```bash
+git init
+```
+
+✅ Output:
+
+```
+Initialized empty Git repository in /home/ubuntu/my-first-repo/.git/
+```
+
+This command creates a new Git repository in the current directory.
+
+---
+
+### **4. Create a New File**
+
+```bash
+echo "This is my first Git repository." > readme.txt
+```
+
+Check the file contents:
+
+```bash
+cat readme.txt
+```
+
+---
+
+### **5. Check the Current Status**
+
+```bash
+git status
+```
+
+✅ Shows that `readme.txt` is an untracked file.
+
+---
+
+### **6. Add the File to the Staging Area**
+
+```bash
+git add readme.txt
+```
+
+Or add all files at once:
+
+```bash
+git add .
+```
+
+---
+
+### **7. Commit the Changes with a Meaningful Message**
+
+```bash
+git commit -m "Added readme.txt file describing project purpose"
+```
+
+✅ Output:
+
+```
+[main (root-commit) abc1234] Added readme.txt file describing project purpose
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+```
+
+---
+
+### **8. Create a Remote Repository on GitHub**
+
+1. Go to [GitHub](https://github.com) → Click **New Repository**
+2. Name it **my-first-repo**
+3. Do **not** initialize it with a README (since we already have one)
+4. Copy the repository URL (e.g.):
+
+   ```
+   https://github.com/username/my-first-repo.git
+   ```
+
+---
+
+### **9. Link Local Repository with Remote**
+
+```bash
+git remote add origin https://github.com/username/my-first-repo.git
+```
+
+Verify remote link:
+
+```bash
+git remote -v
+```
+
+✅ Output:
+
+```
+origin  https://github.com/username/my-first-repo.git (fetch)
+origin  https://github.com/username/my-first-repo.git (push)
+```
+
+---
+
+### **10. Push Changes to the Remote Repository**
+
+Rename branch to `main` (if not already):
+
+```bash
+git branch -M main
+```
+
+Push changes:
+
+```bash
+git push -u origin main
+```
+
+When prompted, enter your:
+
+* GitHub **username**
+* GitHub **Personal Access Token** (as password)
+
+✅ Output:
+
+```
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 248 bytes | 248.00 KiB/s, done.
+To https://github.com/username/my-first-repo.git
+ * [new branch]      main -> main
+```
+
+---
+
+### **11. Verify Changes on GitHub**
+
+Open your GitHub repository in a browser.
+You will now see `readme.txt` uploaded successfully.
+
+---
+
+## 🧾 **Result:**
+
+Successfully created a new Git repository, added a file, committed it with a meaningful message, and pushed the changes to a remote GitHub repository.
+
+---
+
+## 🧠 **Conclusion:**
+
+This experiment demonstrates the complete workflow of using Git for version control — from repository creation to remote synchronization. It helps developers track project versions and collaborate efficiently using Git and GitHub.
+
+---
+
+Would you like me to prepare this as a **formatted PDF report** (with command outputs, explanations, and screenshot placeholders) for your AWS/Git practical submission?
+Here’s the **complete and report-ready guide** for your **Experiment 16: Set up a basic CI pipeline using Jenkins to build a “Hello World” project** — formatted for your **AWS + Ubuntu + Jenkins practical submission** 👇
+
+---
+
+## 🧪 **Experiment 16: Set Up a Basic CI Pipeline Using a CI/CD Tool (e.g., Jenkins) and Configure It to Build a Simple “Hello World” Application**
+
+### **Objective:**
+
+To understand and implement a basic Continuous Integration (CI) pipeline using **Jenkins** that automatically builds a simple “Hello World” project whenever changes are committed.
+
+---
+
+## 🖥️ **System Requirements**
+
+* **AWS EC2 instance (Ubuntu)**
+* **Jenkins** installed (server or Windows version)
+* **Java (JDK 11 or above)** installed
+* **Git** installed and connected to a remote repository
+* **Sample project (Hello World)** — Java or Python program
+
+---
+
+## ⚙️ **Step-by-Step Procedure**
+
+---
+
+### **1. Install Java (Required for Jenkins)**
+
+```bash
+sudo apt update -y
+sudo apt install openjdk-11-jdk -y
+```
+
+Check Java version:
+
+```bash
+java -version
+```
+
+---
+
+### **2. Install Jenkins**
+
+```bash
+sudo apt install jenkins -y
+```
+
+Start and enable Jenkins service:
+
+```bash
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+```
+
+Check status:
+
+```bash
+sudo systemctl status jenkins
+```
+
+---
+
+### **3. Access Jenkins Dashboard**
+
+Open a browser and go to:
+
+```
+http://<your-aws-public-ip>:8080
+```
+
+Get the initial admin password:
+
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+Copy the password → paste it in Jenkins setup wizard.
+
+Select **Install Suggested Plugins**.
+
+Create an **admin user** and complete setup.
+
+---
+
+### **4. Verify Jenkins Installation**
+
+Once inside the dashboard → click **“Manage Jenkins” → “System Information”**
+✅ Jenkins is successfully running.
+
+---
+
+### **5. Install Git Plugin (if not already installed)**
+
+In Jenkins:
+
+* Go to **Manage Jenkins → Manage Plugins → Available tab**
+* Search for **Git Plugin**
+* Install it and restart Jenkins.
+
+---
+
+### **6. Create a Simple “Hello World” Project**
+
+Example (Java):
+
+```bash
+mkdir hello-world
+cd hello-world
+```
+
+Create file `HelloWorld.java`:
+
+```bash
+nano HelloWorld.java
+```
+
+Add code:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World from Jenkins!");
+    }
+}
+```
+
+Initialize Git and push to GitHub:
+
+```bash
+git init
+git add .
+git commit -m "Added HelloWorld.java"
+git branch -M main
+git remote add origin https://github.com/username/hello-world.git
+git push -u origin main
+```
+
+---
+
+### **7. Create a New Jenkins Pipeline Project**
+
+In Jenkins:
+
+1. Click **New Item**
+2. Enter project name → e.g., `HelloWorldPipeline`
+3. Choose **“Pipeline”** → Click **OK**
+
+---
+
+### **8. Configure the Pipeline**
+
+Scroll down to the **Pipeline section** → choose **Pipeline script from SCM**
+
+* **SCM**: Git
+* **Repository URL**:
+
+  ```
+  https://github.com/username/hello-world.git
+  ```
+* **Branch**: main
+
+Add pipeline script (either in Jenkinsfile or inline):
+
+Example **Jenkinsfile** (inside your GitHub repo):
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the Hello World Project...'
+                sh 'javac HelloWorld.java'
+            }
+        }
+        stage('Run') {
+            steps {
+                echo 'Executing the program...'
+                sh 'java HelloWorld'
+            }
+        }
+    }
+}
+```
+
+---
+
+### **9. Save and Build the Pipeline**
+
+Click **Save → Build Now**
+
+✅ Output in console log:
+
+```
+[Pipeline] echo
+Building the Hello World Project...
+[Pipeline] sh
+javac HelloWorld.java
+[Pipeline] echo
+Executing the program...
+[Pipeline] sh
+Hello, World from Jenkins!
+Finished: SUCCESS
+```
+
+---
+
+### **10. Verify Build Success**
+
+Go to:
+
+* **Build History → Last Build (#1)**
+* Click **Console Output** to confirm successful execution.
+
+---
+
+## 🧾 **Result:**
+
+Successfully created a basic **CI pipeline in Jenkins** that automatically builds and executes a simple “Hello World” project whenever changes are pushed to the GitHub repository.
+
+---
+
+## 🧠 **Conclusion:**
+
+This experiment demonstrates how Jenkins can automate the process of **building and testing applications**. The CI pipeline ensures continuous integration, reducing manual effort and improving software delivery speed and reliability.
+
+---
+
+Would you like me to prepare this experiment as a **formatted PDF report (with commands, screenshots placeholders, and outputs)** for your AWS + Jenkins practical submission?
+Here’s the **complete, step-by-step and report-ready write-up** for your **Experiment 17: Build a Docker image from a Dockerfile and run a Docker container using the built image** — formatted perfectly for your **AWS + Ubuntu lab report** 👇
+
+---
+
+## 🧪 **Experiment 17: Build a Docker Image from the Dockerfile and Run a Docker Container Using the Built Image**
+
+### **Objective:**
+
+To understand how to create a Dockerfile, build a Docker image from it, and run a Docker container using the created image.
+
+---
+
+## 🖥️ **System Requirements**
+
+* **AWS EC2 Instance (Ubuntu)**
+* **Docker** installed and running
+* Basic knowledge of Linux commands
+
+---
+
+## ⚙️ **Step-by-Step Procedure**
+
+---
+
+### **1. Verify Docker Installation**
+
+```bash
+docker --version
+```
+
+✅ Output Example:
+
+```
+Docker version 27.0.3, build abc1234
+```
+
+---
+
+### **2. Create a Working Directory**
+
+```bash
+mkdir docker-demo
+cd docker-demo
+```
+
+---
+
+### **3. Create a Dockerfile**
+
+```bash
+nano Dockerfile
+```
+
+Add the following content:
+
+```dockerfile
+# Use the official Ubuntu base image
+FROM ubuntu:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Install dependencies
+RUN apt update && apt install -y python3
+
+# Copy files from host to container
+COPY hello.py .
+
+# Command to run the application
+CMD ["python3", "hello.py"]
+```
+
+---
+
+### **4. Create the Application File**
+
+```bash
+nano hello.py
+```
+
+Add the following code:
+
+```python
+print("Hello, World! This is my custom Docker image.")
+```
+
+---
+
+### **5. Build the Docker Image**
+
+Use the following command to build the image:
+
+```bash
+sudo docker build -t my-hello-app .
+```
+
+✅ Explanation:
+
+* `-t` → Tag name (assigns a name to the image)
+* `.` → Tells Docker to look for a Dockerfile in the current directory
+
+✅ Example Output:
+
+```
+Successfully built 123abcd456ef
+Successfully tagged my-hello-app:latest
+```
+
+---
+
+### **6. Verify the Built Image**
+
+```bash
+sudo docker images
+```
+
+✅ Output Example:
+
+```
+REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+my-hello-app    latest    123abcd456ef   1 minute ago     125MB
+```
+
+---
+
+### **7. Run a Container Using the Built Image**
+
+```bash
+sudo docker run my-hello-app
+```
+
+✅ Output:
+
+```
+Hello, World! This is my custom Docker image.
+```
+
+---
+
+### **8. Run Container in Interactive Mode (Optional)**
+
+```bash
+sudo docker run -it my-hello-app /bin/bash
+```
+
+Now you can explore inside the container.
+Exit with:
+
+```bash
+exit
+```
+
+---
+
+### **9. List Running Containers**
+
+```bash
+sudo docker ps
+```
+
+To view all containers (including stopped ones):
+
+```bash
+sudo docker ps -a
+```
+
+---
+
+### **10. Stop and Remove Container (Optional Cleanup)**
+
+```bash
+sudo docker rm <container_id>
+```
+
+Remove image:
+
+```bash
+sudo docker rmi my-hello-app
+```
+
+---
+
+## 🧾 **Result:**
+
+Successfully created a **Dockerfile**, built a **custom Docker image**, and executed it to run a container displaying the message **“Hello, World! This is my custom Docker image.”**
+
+---
+
+## 🧠 **Conclusion:**
+
+This experiment demonstrates the process of building Docker images from Dockerfiles and running containers from those images. Dockerfiles provide a repeatable, automated way to build portable application environments — ensuring consistency across systems.
+
+---
+
+Would you like me to generate a **formatted PDF report** (with command outputs, explanations, and screenshot placeholders) for this experiment too? It’ll be ready for direct submission.
+
+
+
 
